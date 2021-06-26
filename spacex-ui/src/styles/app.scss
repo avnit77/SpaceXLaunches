@@ -1,0 +1,52 @@
+p,
+button,
+label {
+  font-family: "Lora", sans-serif;
+}
+
+input,
+tr,
+h6,
+strong,
+span,
+h3,
+h4,
+h5,
+th {
+  font-family: "Work Sans", sans-serif;
+}
+
+h1,
+h2,
+.title {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+h3,
+h4,
+h5,
+th,
+button,
+label {
+  letter-spacing: 1px;
+}
+
+tr {
+  font-weight: 500;
+}
+
+th,
+tr {
+  font-size: 14px;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.707);
+}
+
+.hidden {
+  display: none;
+}
+
