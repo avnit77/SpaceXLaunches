@@ -12,17 +12,17 @@ const LaunchContextProvider = ({ config, children }) => {
 
   const query = {
     options: {
-      select: "date_utc flight_number rocket details link",
+      select: "date_utc flight_number rocket details links",
       // page: pageControls.page,
       // sort: pageControls.sort,
       pagination: false,
-      sort: 'date_utc asc',
+      sort: "date_utc asc",
       populate: [
-      {
-        path: "rocket",
-        select: "name"
-      }
-    ],
+        {
+          path: "rocket",
+          select: "name",
+        },
+      ],
     },
   };
 
@@ -48,7 +48,13 @@ const LaunchContextProvider = ({ config, children }) => {
         }
       })
       .then((response) => {
-        setLaunches(response.docs.map((launch)=> ({...launch, rocket: launch.rocket.name})));
+        setLaunches(
+          response.docs.map((launch) => ({
+            ...launch,
+            rocket: launch.rocket.name,
+            links: launch.links.presskit,
+          }))
+        );
         // const { docs, ...pagination } = response;
         // setPagination(pagination);
       })
@@ -62,7 +68,6 @@ const LaunchContextProvider = ({ config, children }) => {
         setLoading(false);
       });
   }, [API_URL]);
-
 
   return (
     <LaunchContext.Provider

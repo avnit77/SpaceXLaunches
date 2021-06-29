@@ -1,5 +1,5 @@
-body { 
-  background: radial-gradient(circle at 60% bottom, $dark-blue, black);
+body {
+  background: radial-gradient(circle at center, $dark-blue, black);
   height: 100vh;
   overflow: hidden;
 }

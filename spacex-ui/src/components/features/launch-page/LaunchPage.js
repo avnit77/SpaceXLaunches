@@ -7,18 +7,19 @@ const LaunchPage = () => {
   const { launches, loading } = useContext(LaunchContext);
 
   return (
-      <div className="section">
+    <div className="section">
+      <header className="header">
         <h1 className="title is-size-2">SpaceX</h1>
-        <div className="grid section">
-          {loading ? (
-            <LoadingSpinner />
-          ) : (
-            <LaunchTable
-              launches={launches ? launches : []}
-            />
-          )}
-        </div>
+        <h3 className="title is-size-5">launches</h3>
+      </header>
+      <div className="gridWrapper section">
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <LaunchTable launches={launches ? launches : []} />
+        )}
       </div>
+    </div>
   );
 };
 
