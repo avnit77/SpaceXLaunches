@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import LoadingSpinner from "../../elem/LoadingSpinner";
-import LaunchTable from "./LaunchTable";
+import LaunchTable from "./Table/LaunchTable";
 import { LaunchContext } from "../../wrappers/LaunchContext";
 
 const LaunchPage = () => {

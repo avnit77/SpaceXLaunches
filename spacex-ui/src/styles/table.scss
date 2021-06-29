@@ -5,24 +5,36 @@
   justify-content: center;
   .table {
     width: 70%;
-    a {
-      color: $light-blue;
+    svg {
+      color: $grey;
     }
   }
   tr {
     color: $light-blue;
     text-align: center;
+    border-bottom: 2px solid $dark-grey-blue;
   }
   th {
-    color: $blue-grey !important;
+    color: $light-blue !important;
+    border-bottom: 2px solid $blue-grey;
   }
   .pagination {
     color: $blue-grey;
+    th {
+        border-bottom: none;
+    }
     .active {
       cursor: pointer;
     }
   }
   .table.is-hoverable tbody tr:not(.is-selected):hover {
     background-color: $grey;
+    svg {
+        color: $dark-grey-blue;
+      }
+    a:hover {
+        color: $light-blue
+    }
+    
   }
 }

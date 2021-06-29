@@ -7,62 +7,8 @@ import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaAngleLeft,
-  FaInfoCircle,
-  FaRocket,
 } from "react-icons/fa";
-import { DefaultTooltip as Tooltip } from "../../elem/Tooltip";
-
-const DateCell = ({ value }) => {
-  return value ? value.slice(0, 4) : null;
-};
-
-const InfoCell = ({ value, link }) => {
-  return (
-    <>
-      {value ? (
-        <span
-          data-tip={`${value}`}
-          data-for={"details"}
-          className="icon is-size-7 is-left formHelper"
-        >
-          <FaInfoCircle />
-          <Tooltip id={"details"} />
-        </span>
-      ) : null}
-      {link ? (
-        <a href={value} target="_blank">
-          <span data-tip="View Press Kit" data-for="press">
-            <FaRocket />
-            <Tooltip id="press" place={"right"} />
-          </span>
-        </a>
-      ) : null}
-    </>
-  );
-};
-
-const createColumns = () => [
-  {
-    Header: "Flight Number",
-    accessor: "flight_number",
-  },
-  {
-    Header: "Launch Year",
-    accessor: "date_utc",
-    Cell: ({ cell }) => <DateCell value={cell.value} />,
-  },
-  {
-    Header: "Rocket Name",
-    accessor: "rocket",
-  },
-  {
-    Header: "Details",
-    accessor: "details",
-    Cell: ({ cell, row }) => (
-      <InfoCell value={cell.value} link={row.original.links} />
-    ),
-  },
-];
+import createColumns from "./TableColumns";
 
 const LaunchTable = ({ launches }) => {
   const columns = useMemo(() => createColumns(), []);
