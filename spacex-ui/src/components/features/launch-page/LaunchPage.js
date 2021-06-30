@@ -2,16 +2,14 @@ import React, { useContext } from "react";
 import LoadingSpinner from "../../elem/LoadingSpinner";
 import LaunchTable from "./Table/LaunchTable";
 import { LaunchContext } from "../../wrappers/LaunchContext";
+import Header from "./Header";
 
 const LaunchPage = () => {
   const { launches, loading } = useContext(LaunchContext);
 
   return (
     <div className="section">
-      <header className="header">
-        <h1 className="title is-size-2">SpaceX</h1>
-        <h3 className="title is-size-5">launches</h3>
-      </header>
+      <Header />
       <div className="gridWrapper section">
         {loading ? (
           <LoadingSpinner />

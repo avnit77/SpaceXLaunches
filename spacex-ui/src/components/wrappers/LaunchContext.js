@@ -6,16 +6,16 @@ const LaunchContext = createContext(null);
 const LaunchContextProvider = ({ config, children }) => {
   const { API_URL } = config;
   const [launches, setLaunches] = useState([]);
+  const [loading, setLoading] = useState(true);
   // const [pagination, setPagination] = useState({});
   // const [pageControls, setPageControls] = useState({sort: 'date_utc asc', page: 1});
-  const [loading, setLoading] = useState(true);
 
   const query = {
     options: {
       select: "date_utc flight_number rocket details links",
       // page: pageControls.page,
       // sort: pageControls.sort,
-      pagination: false,
+      pagination: false, //originally used API pagination, see commented code
       sort: "date_utc asc",
       populate: [
         {
@@ -37,7 +37,7 @@ const LaunchContextProvider = ({ config, children }) => {
     };
   };
   useEffect(() => {
-    setLoading(true); // set the loading to true
+    setLoading(true);
     fetch(`${API_URL}/launches/query`, POST(query))
       .then(async (response) => {
         if (response.ok) {
