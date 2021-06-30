@@ -14,6 +14,7 @@ const LaunchTable = ({ launches }) => {
   const columns = useMemo(() => createColumns(), []);
   const tableData = useMemo(() => launches, [launches]);
 
+  // Sub-row option for detail display
   // const renderRowSubComponent = useCallback(
   //   ({ row }) => (
   //     <pre>
@@ -91,6 +92,16 @@ const LaunchTable = ({ launches }) => {
                       <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                     );
                   })}
+                  {/* {row.isExpanded ? (
+                                        <tr>
+                                            <td
+                                                colSpan={visibleColumns.length}
+                                                style={{ position: 'relative' }}
+                                            >
+                                                {renderRowSubComponent({ row })}
+                                            </td>
+                                        </tr>
+                                    ) : null} */}
                 </tr>
               </React.Fragment>
             );
