@@ -23,7 +23,7 @@ const DateCell = ({ value }) => {
           </span>
         ) : null}
         {link ? (
-          <a href={value} target="_blank">
+          <a href={link} target="_blank">
             <span data-tip="View Press Kit" data-for="press">
               <FaRocket />
               <Tooltip id="press" place={"right"} />
