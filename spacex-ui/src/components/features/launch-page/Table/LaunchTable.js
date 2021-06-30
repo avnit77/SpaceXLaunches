@@ -1,5 +1,5 @@
-import React, { useMemo, useCallback } from "react";
-import { useTable, usePagination, useSortBy, useExpanded } from "react-table";
+import React, { useMemo } from "react";
+import { useTable, usePagination, useSortBy } from "react-table";
 import {
   FaAngleUp,
   FaAngleDown,
@@ -14,15 +14,15 @@ const LaunchTable = ({ launches }) => {
   const columns = useMemo(() => createColumns(), []);
   const tableData = useMemo(() => launches, [launches]);
 
-  const renderRowSubComponent = useCallback(
-    ({ row }) => (
-      <pre>
-        {" "}
-        <p>{row.original.details}</p>
-      </pre>
-    ),
-    []
-  );
+  // const renderRowSubComponent = useCallback(
+  //   ({ row }) => (
+  //     <pre>
+  //       {" "}
+  //       <p>{row.original.details}</p>
+  //     </pre>
+  //   ),
+  //   []
+  // );
 
   const {
     getTableProps,
@@ -38,7 +38,7 @@ const LaunchTable = ({ launches }) => {
     gotoPage,
     nextPage,
     previousPage,
-    state: { pageIndex, pageSize, sortBy, expanded },
+    state: { pageIndex, pageSize, sortBy },
   } = useTable(
     {
       columns,
@@ -47,7 +47,6 @@ const LaunchTable = ({ launches }) => {
       disableMultiSort: true,
     },
     useSortBy,
-    useExpanded,
     usePagination
   );
 
@@ -93,11 +92,6 @@ const LaunchTable = ({ launches }) => {
                     );
                   })}
                 </tr>
-                {row.isExpanded ? (
-                  <tr>
-                    <td>{renderRowSubComponent({ row })}</td>
-                  </tr>
-                ) : null}
               </React.Fragment>
             );
           })}

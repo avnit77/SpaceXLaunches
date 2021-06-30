@@ -31,10 +31,9 @@
     background-color: $grey;
     svg {
         color: $dark-grey-blue;
+        &:hover{
+            color: $light-blue;
+        }
       }
-    a:hover {
-        color: $light-blue
-    }
-    
   }
 }
